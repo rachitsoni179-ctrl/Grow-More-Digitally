@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grow More Digitally | Ideas That Create. Content That Converts.</title>
+  <meta name="description" content="Grow More Digitally - Premier Digital Marketing & Content Creation Agency by Rachit Soni. 3+ Years Experience, 2.5x Average Reach Boost, 10+ Brands Grown.">
+  <meta name="keywords" content="Grow More Digitally, Rachit Soni, Script Writing, Video Creation, Reel Editing, Instagram Handling, Digital Marketing, Reach Boost">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js for 3D Motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-outline" id="cursorOutline"></div>
+
+  <!-- Preloader Screen -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <div class="preloader-logo-bg"></div>
+        <span class="preloader-logo-text">GM</span>
+      </div>
+      <h2 class="preloader-title">GROW MORE DIGITALLY</h2>
+      <p class="preloader-subtitle">Ideas That Create. Content That Converts.</p>
+      <div class="preloader-bar-container">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <div class="preloader-number" id="preloaderNumber">0%</div>
+    </div>
+  </div>
+
+  <!-- Background 3D Canvas -->
+  <canvas id="bg3dCanvas"></canvas>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Main Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-badge">GM</div>
+        <div class="brand-text-group">
+          <span class="brand-name">Grow More</span>
+          <span class="brand-sub">DIGITALLY</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#metrics" class="nav-link">Results</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#inquiry" class="nav-link">Inquiry</a>
+      </nav>
+
+      <a href="#inquiry" class="btn btn-neon nav-cta magnet-btn">
+        <i data-lucide="send"></i>
+        <span>Quick Inquiry</span>
+      </a>
+
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <i data-lucide="menu" id="menuIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#metrics" class="mobile-nav-link">Results</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#inquiry" class="mobile-nav-link">Inquiry</a>
+      <a href="https://wa.me/919327784142" target="_blank" class="btn btn-neon width-full">
+        <i data-lucide="message-square"></i> WhatsApp Direct
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="section-container hero-grid">
+      <div class="hero-text-col reveal-left">
+        <div class="tag-pill neon-pill">
+          <span class="pulse-dot"></span>
+          <span>Digital Growth & Reel Studio</span>
+        </div>
+
+        <h1 class="hero-title">
+          IDEAS THAT <span class="text-lime-gradient">CREATE.</span><br>
+          CONTENT THAT <span class="text-lime-highlight">CONVERTS.</span>
+        </h1>
+
+        <p class="hero-description">
+          We help ambitious creators, personal brands, and businesses scale their digital presence through high-impact scriptwriting, cinematic reel production, strategic Instagram management, and performance marketing.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#inquiry" class="btn btn-neon btn-lg magnet-btn">
+            <i data-lucide="message-circle"></i>
+            <span>Send WhatsApp Inquiry</span>
+          </a>
+          <a href="#services" class="btn btn-glass btn-lg magnet-btn">
+            <span>Explore Services</span>
+            <i data-lucide="arrow-down-right"></i>
+          </a>
+        </div>
+
+        <div class="founder-badge-card">
+          <div class="founder-avatar">
+            <i data-lucide="user-check"></i>
+          </div>
+          <div class="founder-info">
+            <span class="founder-label">Founder & Creative Director</span>
+            <span class="founder-name">Rachit Soni</span>
+          </div>
+          <a href="https://wa.me/919327784142" target="_blank" class="founder-phone-btn" title="Contact Rachit Soni directly">
+            <i data-lucide="phone-call"></i>
+            <span>9327784142</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero 3D Interactive Card Showcase -->
+      <div class="hero-visual-col reveal-right">
+        <div class="hero-card-stack tilt-card" id="heroTiltCard">
+          <div class="card-glow-border"></div>
+          
+          <div class="paint-splatter-bg"></div>
+
+          <div class="hero-card-header">
+            <div class="brand-logo-large">
+              <span class="logo-g">G</span><span class="logo-m">M</span>
+              <div class="arrow-up-graphic">↗</div>
+            </div>
+            <div class="badge-tag">GROW MORE DIGITALLY</div>
+          </div>
+
+          <div class="hero-card-services-list">
+            <div class="mini-service-item">
+              <i data-lucide="pen-tool"></i>
+              <span>SCRIPT WRITING</span>
+              <small>IDEA & CONCEPT</small>
+            </div>
+            <div class="mini-service-item">
+              <i data-lucide="clapperboard"></i>
+              <span>VIDEO CREATION</span>
+              <small>SHOOTING FOR REELS</small>
+            </div>
+            <div class="mini-service-item">
+              <i data-lucide="video"></i>
+              <span>REEL EDITING</span>
+              <small>MAKING POSTS</small>
+            </div>
+            <div class="mini-service-item">
+              <i data-lucide="instagram"></i>
+              <span>INSTAGRAM HANDLING</span>
+              <small>GROW YOUR BRAND</small>
+            </div>
+            <div class="mini-service-item">
+              <i data-lucide="trending-up"></i>
+              <span>DIGITAL MARKETING</span>
+              <small>RESULTS THAT GROW</small>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="contact-pill">
+              <i data-lucide="user"></i> Rachit Soni
+            </div>
+            <div class="contact-pill lime-pill">
+              <i data-lucide="phone"></i> 9327784142
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Section -->
+  <section class="metrics-section" id="metrics">
+    <div class="section-container">
+      <div class="metrics-grid">
+
+        <div class="metric-card reveal-up" style="--delay: 0.1s">
+          <div class="metric-icon-box">
+            <i data-lucide="award"></i>
+          </div>
+          <div class="metric-number-group">
+            <span class="metric-number" data-target="3" data-suffix="+">0</span>
+            <span class="metric-unit">Years</span>
+          </div>
+          <p class="metric-label">Proven Industry Experience</p>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 90%;"></div></div>
+        </div>
+
+        <div class="metric-card highlight-metric reveal-up" style="--delay: 0.2s">
+          <div class="metric-icon-box">
+            <i data-lucide="zap"></i>
+          </div>
+          <div class="metric-number-group">
+            <span class="metric-number" data-target="2.5" data-suffix="x" data-decimal="true">0</span>
+            <span class="metric-unit">Boost</span>
+          </div>
+          <p class="metric-label">Average Reach Multiplier</p>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 100%;"></div></div>
+        </div>
+
+        <div class="metric-card reveal-up" style="--delay: 0.3s">
+          <div class="metric-icon-box">
+            <i data-lucide="rocket"></i>
+          </div>
+          <div class="metric-number-group">
+            <span class="metric-number" data-target="10" data-suffix="+">0</span>
+            <span class="metric-unit">Brands</span>
+          </div>
+          <p class="metric-label">Successfully Grown & Scaled</p>
+          <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 95%;"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Services Breakdown Section -->
+  <section class="services-section" id="services">
+    <div class="section-container">
+      <div class="section-header text-center reveal-up">
+        <div class="tag-pill">What We Provide</div>
+        <h2 class="section-title">End-To-End <span class="text-lime-gradient">Content & Growth</span> Services</h2>
+        <p class="section-subtitle">Comprehensive solutions tailored to elevate your brand from concept to viral authority.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1: Script Writing -->
+        <div class="service-card tilt-card reveal-up" data-service-id="script-writing">
+          <div class="service-brush-stroke"></div>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="pen-tool"></i>
+            </div>
+            <span class="service-number">01</span>
+          </div>
+          <h3 class="service-title">SCRIPT WRITING</h3>
+          <span class="service-subtag">IDEA & CONCEPT</span>
+          <p class="service-description">
+            High-retention scriptwriting designed to hook viewers in the first 3 seconds and drive maximum watch time.
+          </p>
+          <ul class="service-feature-list">
+            <li><i data-lucide="check-circle-2"></i> Viral Hook Generation</li>
+            <li><i data-lucide="check-circle-2"></i> Storyboarding & Visual Cues</li>
+            <li><i data-lucide="check-circle-2"></i> Brand Narrative & CTA Framing</li>
+          </ul>
+          <button class="btn btn-service-modal" onclick="openServiceModal('script-writing')">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Service 2: Video Creation -->
+        <div class="service-card tilt-card reveal-up" data-service-id="video-creation">
+          <div class="service-brush-stroke"></div>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="clapperboard"></i>
+            </div>
+            <span class="service-number">02</span>
+          </div>
+          <h3 class="service-title">VIDEO CREATION</h3>
+          <span class="service-subtag">SHOOTING FOR REELS</span>
+          <p class="service-description">
+            High-end video production designed to showcase your personal brand or business. We manage lighting, audio clarity, and creative direction on-set.
+          </p>
+          <ul class="service-feature-list">
+            <li><i data-lucide="check-circle-2"></i> Professional Shooting</li>
+            <li><i data-lucide="check-circle-2"></i> Microphone Audio Capture</li>
+          </ul>
+          <button class="btn btn-service-modal" onclick="openServiceModal('video-creation')">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Service 3: Reel Editing -->
+        <div class="service-card tilt-card reveal-up" data-service-id="reel-editing">
+          <div class="service-brush-stroke"></div>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="video"></i>
+            </div>
+            <span class="service-number">03</span>
+          </div>
+          <h3 class="service-title">REEL EDITING</h3>
+          <span class="service-subtag">MAKING POSTS</span>
+          <p class="service-description">
+            Dynamic fast-cut editing with kinetic captions, sound effects, and motion graphics to maximize watch time.
+          </p>
+          <ul class="service-feature-list">
+            <li><i data-lucide="check-circle-2"></i> Kinetic Captions & Motion FX</li>
+            <li><i data-lucide="check-circle-2"></i> Sound Design & Background Tracks</li>
+          </ul>
+          <button class="btn btn-service-modal" onclick="openServiceModal('reel-editing')">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Service 4: Instagram Handling -->
+        <div class="service-card tilt-card reveal-up" data-service-id="instagram-handling">
+          <div class="service-brush-stroke"></div>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="instagram"></i>
+            </div>
+            <span class="service-number">04</span>
+          </div>
+          <h3 class="service-title">INSTAGRAM HANDLING</h3>
+          <span class="service-subtag">GROW YOUR BRAND</span>
+          <p class="service-description">
+            Complete account management, strategic posting schedules, bio optimization, and community engagement.
+          </p>
+          <ul class="service-feature-list">
+            <li><i data-lucide="check-circle-2"></i> Content Calendar & Bio Setup</li>
+            <li><i data-lucide="check-circle-2"></i> Hashtag & Audio Trend Strategy</li>
+            <li><i data-lucide="check-circle-2"></i> Weekly Analytics & Growth Audits</li>
+          </ul>
+          <button class="btn btn-service-modal" onclick="openServiceModal('instagram-handling')">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Service 5: Digital Marketing -->
+        <div class="service-card tilt-card reveal-up" data-service-id="digital-marketing">
+          <div class="service-brush-stroke"></div>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="trending-up"></i>
+            </div>
+            <span class="service-number">05</span>
+          </div>
+          <h3 class="service-title">DIGITAL MARKETING</h3>
+          <span class="service-subtag">RESULTS THAT GROW</span>
+          <p class="service-description">
+            Targeted growth campaigns, lead generation funnels, and search engine optimization to scale your business.
+          </p>
+          <ul class="service-feature-list">
+            <li><i data-lucide="check-circle-2"></i> SEO Management</li>
+            <li><i data-lucide="check-circle-2"></i> Social Media Marketing</li>
+            <li><i data-lucide="check-circle-2"></i> Leads Generation</li>
+            <li><i data-lucide="check-circle-2"></i> Trackable Revenue Growth</li>
+          </ul>
+          <button class="btn btn-service-modal" onclick="openServiceModal('digital-marketing')">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Inquiry Form Section -->
+  <section class="inquiry-section" id="inquiry">
+    <div class="section-container">
+      <div class="inquiry-wrapper glass-panel reveal-up">
+        
+        <div class="inquiry-header text-center">
+          <div class="tag-pill neon-pill">Direct Inquiry</div>
+          <h2 class="inquiry-title">Ready to <span class="text-lime-gradient">Grow Your Brand?</span></h2>
+          <p class="inquiry-subtitle">
+            Fill out the form below. Once submitted, all your inquiry details will automatically format and send straight to <strong>Rachit Soni's WhatsApp (+91 9327784142)</strong> for instant response!
+          </p>
+        </div>
+
+        <form id="whatsappInquiryForm" class="inquiry-form">
+          <div class="form-grid">
+
+            <!-- Field 1: Name -->
+            <div class="form-group">
+              <label for="clientName"><i data-lucide="user"></i> 1. Full Name <span class="required">*</span></label>
+              <input type="text" id="clientName" name="clientName" placeholder="e.g. Rahul Sharma" required class="custom-input">
+            </div>
+
+            <!-- Field 2: Number -->
+            <div class="form-group">
+              <label for="clientNumber"><i data-lucide="phone"></i> 2. Phone / WhatsApp Number <span class="required">*</span></label>
+              <input type="tel" id="clientNumber" name="clientNumber" placeholder="e.g. +91 98765 43210" required class="custom-input">
+            </div>
+
+            <!-- Field 3: Email Address -->
+            <div class="form-group">
+              <label for="clientEmail"><i data-lucide="mail"></i> 3. Email Address <span class="required">*</span></label>
+              <input type="email" id="clientEmail" name="clientEmail" placeholder="e.g. rahul@brand.com" required class="custom-input">
+            </div>
+
+            <!-- Field 4: Business Name -->
+            <div class="form-group">
+              <label for="clientBusiness"><i data-lucide="building"></i> 4. Business Name / Instagram Handle <span class="required">*</span></label>
+              <input type="text" id="clientBusiness" name="clientBusiness" placeholder="e.g. @rahulfitness or Acme Tech" required class="custom-input">
+            </div>
+
+          </div>
+
+          <!-- Field 5: What do you need? -->
+          <div class="form-group full-width margin-top-sm">
+            <label class="section-label"><i data-lucide="check-square"></i> 5. What do you need? (Select all that apply) <span class="required">*</span></label>
+            <div class="services-select-grid">
+
+              <label class="service-checkbox-card">
+                <input type="checkbox" name="servicesNeeded" value="Script Writing (Idea & Concept)" checked>
+                <div class="checkbox-box-content">
+                  <div class="checkbox-icon"><i data-lucide="pen-tool"></i></div>
+                  <div class="checkbox-text">
+                    <strong>Script Writing</strong>
+                    <small>Idea & Concept</small>
+                  </div>
+                </div>
+              </label>
+
+              <label class="service-checkbox-card">
+                <input type="checkbox" name="servicesNeeded" value="Video Creation (Shooting for Reels)">
+                <div class="checkbox-box-content">
+                  <div class="checkbox-icon"><i data-lucide="clapperboard"></i></div>
+                  <div class="checkbox-text">
+                    <strong>Video Creation</strong>
+                    <small>Shooting for Reels</small>
+                  </div>
+                </div>
+              </label>
+
+              <label class="service-checkbox-card">
+                <input type="checkbox" name="servicesNeeded" value="Reel Editing (Making Posts)" checked>
+                <div class="checkbox-box-content">
+                  <div class="checkbox-icon"><i data-lucide="video"></i></div>
+                  <div class="checkbox-text">
+                    <strong>Reel Editing</strong>
+                    <small>Making Posts</small>
+                  </div>
+                </div>
+              </label>
+
+              <label class="service-checkbox-card">
+                <input type="checkbox" name="servicesNeeded" value="Instagram Handling (Grow Your Brand)">
+                <div class="checkbox-box-content">
+                  <div class="checkbox-icon"><i data-lucide="instagram"></i></div>
+                  <div class="checkbox-text">
+                    <strong>Instagram Handling</strong>
+                    <small>Grow Your Brand</small>
+                  </div>
+                </div>
+              </label>
+
+              <label class="service-checkbox-card">
+                <input type="checkbox" name="servicesNeeded" value="Digital Marketing (Results That Grow)">
+                <div class="checkbox-box-content">
+                  <div class="checkbox-icon"><i data-lucide="trending-up"></i></div>
+                  <div class="checkbox-text">
+                    <strong>Digital Marketing</strong>
+                    <small>Results That Grow</small>
+                  </div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Submit Action -->
+          <div class="form-submit-row margin-top-md">
+            <button type="submit" class="btn btn-whatsapp-submit magnet-btn">
+              <i data-lucide="message-square"></i>
+              <span>Send Inquiry to WhatsApp (+91 9327784142)</span>
+            </button>
+          </div>
+
+          <div class="whatsapp-note text-center margin-top-sm">
+            <i data-lucide="lock"></i> Your information will be pre-filled into a WhatsApp chat message directly to Rachit Soni.
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="section-container footer-content">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <span class="logo-g">G</span><span class="logo-m">M</span> Grow More Digitally
+        </div>
+        <p class="footer-tagline">IDEAS THAT CREATE. CONTENT THAT CONVERTS.</p>
+        <p class="footer-copy">&copy; 2026 Grow More Digitally. Founder: Rachit Soni.</p>
+      </div>
+
+      <div class="footer-contact-col">
+        <a href="https://wa.me/919327784142" target="_blank" class="footer-whatsapp-link">
+          <i data-lucide="phone"></i> 9327784142
+        </a>
+        <a href="https://instagram.com/Grow.moredigitally" target="_blank" class="footer-instagram-link">
+          <i data-lucide="instagram"></i> Grow.moredigitally
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Speed-Dial WhatsApp Widget -->
+  <a href="https://wa.me/919327784142" target="_blank" class="floating-whatsapp-btn" id="floatingWhatsapp" title="Chat on WhatsApp with Rachit Soni">
+    <div class="whatsapp-pulse"></div>
+    <i data-lucide="message-circle"></i>
+    <span class="whatsapp-tooltip">Chat with Rachit Soni (9327784142)</span>
+  </a>
+
+  <!-- Service Detail Modal -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal-card glass-panel">
+      <button class="modal-close-btn" onclick="closeServiceModal()"><i data-lucide="x"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/js/main.js"></script>
+</body>
+</html>
