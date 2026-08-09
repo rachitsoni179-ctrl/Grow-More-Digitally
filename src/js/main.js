@@ -4,35 +4,45 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lucide Icons
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-
-  // 2. Preloader Animation (0% to 100%)
+  // 1. Initialize Smooth 0%-100% Preloader Counter
   initPreloader();
 
-  // 3. Three.js 3D Motion Particle Field Background
-  init3DBackground();
-
-  // 4. Custom Neon Cursor & Magnet Buttons
+  // 2. Custom Neon Cursor & Magnet Buttons
   initCustomCursor();
 
-  // 5. Navbar Scroll & Mobile Drawer
+  // 3. Navbar Scroll & Mobile Menu
   initNavigation();
 
-  // 6. 3D Perspective Card Tilt
-  init3DTilt();
-
-  // 7. Animated Stats Counters (3+ Years, 2.5x Reach, 10+ Brands)
-  initCounters();
-
-  // 8. Entrance Reveal Animations
+  // 4. Scroll Reveal Animations
   initScrollReveals();
 
-  // 9. Direct WhatsApp Inquiry Form Submission
+  // 5. 5-Field Direct WhatsApp Inquiry Form
   initWhatsAppForm();
+
+  // 6. Init features that rely on CDN scripts (with retry logic)
+  tryInitLucide();
+  tryInit3D();
+  initCounters();
+  init3DTilt();
 });
+
+function tryInitLucide(attempts) {
+  attempts = attempts || 0;
+  if (window.lucide) {
+    lucide.createIcons();
+  } else if (attempts < 20) {
+    setTimeout(() => tryInitLucide(attempts + 1), 200);
+  }
+}
+
+function tryInit3D(attempts) {
+  attempts = attempts || 0;
+  if (typeof THREE !== 'undefined') {
+    init3DBackground();
+  } else if (attempts < 20) {
+    setTimeout(() => tryInit3D(attempts + 1), 300);
+  }
+}
 
 /* ==========================================================================
    1. PRELOADER
@@ -44,9 +54,19 @@ function initPreloader() {
   
   if (!preloader) return;
 
+  function dismiss() {
+    preloader.classList.add('hide');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 700);
+  }
+
+  // Hard timeout: always dismiss preloader after 1.5 seconds no matter what
+  const hardTimeout = setTimeout(dismiss, 1500);
+
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 15) + 5;
+    progress += Math.floor(Math.random() * 15) + 10;
     if (progress > 100) progress = 100;
 
     if (preloaderBar) preloaderBar.style.width = `${progress}%`;
@@ -54,11 +74,10 @@ function initPreloader() {
 
     if (progress >= 100) {
       clearInterval(interval);
-      setTimeout(() => {
-        preloader.classList.add('hide');
-      }, 400);
+      clearTimeout(hardTimeout);
+      setTimeout(dismiss, 300);
     }
-  }, 60);
+  }, 40);
 }
 
 /* ==========================================================================
@@ -334,15 +353,31 @@ function initCounters() {
 function initScrollReveals() {
   const reveals = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+  // Activate hero section elements immediately after preloader
+  setTimeout(() => {
+    document.querySelectorAll('#hero .reveal-up, #hero .reveal-left, #hero .reveal-right').forEach((el) => {
+      el.classList.add('active');
     });
-  }, { threshold: 0.15 });
+  }, 400);
 
-  reveals.forEach((el) => observer.observe(el));
+  // Safety fallback after 1.5s so everything reveals cleanly
+  setTimeout(() => {
+    reveals.forEach((el) => el.classList.add('active'));
+  }, 1500);
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach((el) => observer.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('active'));
+  }
 }
 
 /* ==========================================================================
@@ -398,8 +433,8 @@ function initWhatsAppForm() {
     const whatsappPhone = '919327784142'; // Rachit Soni WhatsApp Number
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${encodedMessage}`;
 
-    // Open WhatsApp directly
-    window.open(whatsappUrl, '_blank');
+    // Direct window location redirect so popup blockers in browser/iframe never block WhatsApp opening
+    window.location.href = whatsappUrl;
   });
 }
 
