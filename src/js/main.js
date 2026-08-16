@@ -250,32 +250,78 @@ function initCustomCursor() {
 }
 
 /* ==========================================================================
-   4. NAVIGATION & MOBILE MENU
+   4. NAVIGATION & MOBILE MENU + SCROLL SPY
    ========================================================================== */
 function initNavigation() {
   const navbar = document.getElementById('navbar');
   const toggleBtn = document.getElementById('mobileMenuToggle');
+  const menuIcon = document.getElementById('menuIcon');
   const drawer = document.getElementById('mobileDrawer');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-section]');
+  const sections = document.querySelectorAll('section[id]');
 
+  // Scroll: add scrolled class & run spy
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
     }
+    updateActiveNav();
   });
 
-  if (toggleBtn && drawer) {
-    toggleBtn.addEventListener('click', () => {
-      const isOpen = drawer.style.display === 'flex';
-      drawer.style.display = isOpen ? 'none' : 'flex';
-      drawer.style.flexDirection = 'column';
+  // Scroll spy: highlight nav link matching visible section
+  function updateActiveNav() {
+    let currentSection = 'hero';
+    const scrollPos = window.scrollY + (window.innerHeight / 3);
+
+    sections.forEach((section) => {
+      if (scrollPos >= section.offsetTop) {
+        currentSection = section.id;
+      }
     });
 
-    const mobileLinks = drawer.querySelectorAll('a');
-    mobileLinks.forEach((link) => {
+    navLinks.forEach((link) => {
+      if (link.dataset.section === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    mobileNavLinks.forEach((link) => {
+      if (link.dataset.section === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // Run once on load
+  updateActiveNav();
+
+  // Mobile drawer toggle
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        drawer.classList.remove('open');
+        if (menuIcon) menuIcon.setAttribute('data-lucide', 'menu');
+      } else {
+        drawer.classList.add('open');
+        if (menuIcon) menuIcon.setAttribute('data-lucide', 'x');
+      }
+      if (window.lucide) lucide.createIcons();
+    });
+
+    const allDrawerLinks = drawer.querySelectorAll('a');
+    allDrawerLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        drawer.style.display = 'none';
+        drawer.classList.remove('open');
+        if (menuIcon) menuIcon.setAttribute('data-lucide', 'menu');
+        if (window.lucide) lucide.createIcons();
       });
     });
   }
