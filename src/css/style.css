@@ -467,8 +467,70 @@ section {
   cursor: pointer;
 }
 .mobile-drawer {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(7, 8, 10, 0.97);
+  border-top: 1px solid var(--border-lime-glass);
+  border-bottom: 1px solid var(--border-lime-glass);
+  padding: 18px 24px 24px;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99;
 }
+.mobile-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-glass);
+  margin-bottom: 8px;
+}
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border: 1px solid transparent;
+}
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--lime-primary);
+  background: rgba(140, 219, 0, 0.08);
+  border-color: rgba(140, 219, 0, 0.2);
+}
+.mobile-nav-link svg {
+  width: 18px;
+  height: 18px;
+}
+
 
 /* Hero Section */
 .hero-section {
@@ -772,6 +834,24 @@ section {
   filter: blur(50px);
   opacity: 0.2;
   pointer-events: none;
+}
+.service-img-top {
+  width: calc(100% + 56px);
+  margin: -36px -28px 24px -28px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--border-lime-glass);
+}
+.service-img-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover .service-img-top img {
+  transform: scale(1.08);
 }
 .service-header {
   display: flex;
