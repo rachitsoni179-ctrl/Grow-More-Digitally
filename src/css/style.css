@@ -612,6 +612,31 @@ section {
   background: var(--lime-primary);
   color: #000;
 }
+.founder-insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 12px;
+  box-shadow: 0 4px 18px rgba(220, 39, 67, 0.45);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.founder-insta-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.65);
+  color: #ffffff !important;
+}
+.founder-insta-btn i {
+  width: 18px;
+  height: 18px;
+}
 
 /* 3D Tilt Poster Card */
 .hero-card-stack {
@@ -1363,6 +1388,30 @@ section {
 .footer-whatsapp-link:hover {
   color: var(--lime-primary);
 }
+.footer-instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 18px rgba(220, 39, 67, 0.4);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.footer-instagram-link:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 25px rgba(220, 39, 67, 0.65);
+  color: #ffffff !important;
+}
+.footer-instagram-link i {
+  width: 18px;
+  height: 18px;
+}
 
 /* Margins */
 .margin-top-sm { margin-top: 16px; }
@@ -1426,4 +1475,6 @@ section {
   .metric-card { padding: 20px 16px; }
   .service-card { padding: 24px 18px; }
   .btn-whatsapp-submit { font-size: 0.95rem; padding: 14px 16px; }
+  .founder-badge-card { flex-direction: column; text-align: center; gap: 10px; padding: 16px !important; }
+  .founder-insta-btn { margin-left: 0; margin-top: 6px; width: 100%; justify-content: center; }
 }
